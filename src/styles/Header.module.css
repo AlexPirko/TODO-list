@@ -1,0 +1,14 @@
+.header {
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed var(--primary);
+    margin-bottom: 8rem;
+}
+
+.headerIcon{
+    width: 3.5rem;
+    height: 3.4rem;
+    color: var(--white);
+}

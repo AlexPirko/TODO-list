@@ -1,9 +1,15 @@
-
+import Header from './Header/Header';
+import InputTask from './InputTask/InputTask';
+import TasksContainer from './TasksContainer/TasksContainer';
 
 const App = () => {
-  return (
-    <h2>App</h2>
-  )
-}
+    return (
+        <main>
+            <Header/>
+            <InputTask />
+            <TasksContainer />
+        </main>
+    );
+};
 
-export default App
+export default App;
