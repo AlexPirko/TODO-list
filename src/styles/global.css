@@ -17,7 +17,6 @@ body {
     min-height: 100vh;
     background: var(--light);
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -51,7 +50,7 @@ main {
     border-radius: 15px;
     background: var(--bg);
     padding: 3rem 4rem;
-    margin: 5rem 0;
+    margin: 4rem 0;
 }
 
 button {

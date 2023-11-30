@@ -11,9 +11,31 @@
 
 .pagination {
     display: flex;
-
+    justify-content: center;
+    gap: 7px;
 }
 
-.nextBtn {
-    
+.pagination li {
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nextBtn,
+.prevBtn,
+.page {
+    background: var(--primary);
+}
+
+.activePage {
+    background: var(--secondary);
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.disabledLink {
+    cursor: not-allowed;
 }
