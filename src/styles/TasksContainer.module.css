@@ -29,7 +29,7 @@
 }
 
 .activePage {
-    background: var(--secondary);
+    background: var(--primary);
 }
 
 .disabled {
