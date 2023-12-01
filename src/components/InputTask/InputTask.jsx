@@ -1,20 +1,33 @@
 import styles from '../../styles/InputTask.module.css';
 
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
+import { addTask } from '../../store/tasks/tasks-actions';
+
 const InputTask = () => {
-    const [inputValue, setInputValue] = useState('');
+    const [value, setValue] = useState('');
+    const dispatch = useDispatch();
+
+    const handleAddTask = () => {
+        dispatch(addTask(value));
+        setValue('');
+    };
 
     return (
-        <section className={styles.inputTask}> 
+        <section className={styles.inputTask}>
             <input
                 className={styles.inputTaskValue}
                 type='text'
                 placeholder='Add todo...'
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
+                value={value}
+                onChange={(e) => {
+                    setValue(e.target.value);
+                }}
             />
-            <button className='styles.inputTaskBtn' onClick={() => {}}>Add</button>
+            <button className='styles.inputTaskBtn' onClick={handleAddTask}>
+                Add
+            </button>
         </section>
     );
 };

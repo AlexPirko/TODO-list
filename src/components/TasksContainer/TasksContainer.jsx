@@ -1,20 +1,15 @@
 import styles from '../../styles/TasksContainer.module.css';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
+import { useSelector } from 'react-redux';
 
 import TaskBlock from '../TaskBlock/TaskBlock';
 
 const TasksContainer = () => {
-    const [tasks, setTasks] = useState([]);
     const [pages, setPages] = useState(0);
 
-    // Get Data
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users/1/todos')
-            .then((response) => response.json())
-            .then((data) => setTasks(data));
-    }, []);
+    const tasks = useSelector((store) => store.tasks);
 
     //Add Pagination
     const tasksPerPage = 6;
@@ -49,7 +44,7 @@ const TasksContainer = () => {
                     nextLabel={'>'}
                     previousLabel={'<'}
                     containerClassName={styles.pagination}
-                    pageClassName={styles.page}
+                    pageClassName={styles.pageClass}
                     activeClassName={styles.activePage}
                     pageLinkClassName={styles.activeLink}
                     nextClassName={styles.nextBtn}
