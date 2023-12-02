@@ -19,6 +19,7 @@ const TaskBlock = ({ id, title, completed }) => {
     const [value, setValue] = useState(title);
     const editInputRef = useRef(null);
 
+    //Animation properties
     const item = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -27,6 +28,7 @@ const TaskBlock = ({ id, title, completed }) => {
         },
     };
 
+    //Add input focus
     useEffect(() => {
         if (isEdit) {
             editInputRef?.current?.focus();

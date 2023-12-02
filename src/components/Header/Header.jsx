@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
 
 const Header = () => {
+    //Animation properties
     const title = {
         initial: {
             opacity: 1,
@@ -17,7 +18,6 @@ const Header = () => {
             },
         },
     };
-
     const letter = {
         initial: {
             opacity: 0,
@@ -31,7 +31,6 @@ const Header = () => {
             },
         },
     };
-
     const text = 'Todo List';
 
     return (

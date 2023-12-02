@@ -98,3 +98,10 @@ input::-webkit-inner-spin-button {
 input {
     padding: 0;
 }
+
+@media only screen and (max-width: 780px) {
+    main {
+        margin: 0;
+        min-width: fit-content;
+    }
+}
