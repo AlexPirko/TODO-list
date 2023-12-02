@@ -3,6 +3,7 @@ import styles from '../../styles/TasksContainer.module.css';
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 
 import TaskBlock from '../TaskBlock/TaskBlock';
 import { selectCurrTasks } from '../../store/tasks/tasks-selectors';
@@ -21,13 +22,27 @@ const TasksContainer = () => {
         setPages(selected);
     };
 
+    //Add animation
+    const container = {
+        hidden: { opacity: 1, scale: 0 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                delayChildren: 0.4,
+                staggerChildren: 0.2,
+            },
+        },
+    };
+
+
     return (
         <section className={styles.tasksContainer}>
-            <div>
+            <motion.div variants={container} initial='hidden' animate='visible'>
                 {!tasks.length && (
-                    <h3 className={styles.noTasksTitle}>
+                    <motion.h3 className={styles.noTasksTitle}>
                         You haven&apos;t created any tasks yet
-                    </h3>
+                    </motion.h3>
                 )}
                 {tasks
                     .toSorted((a, b) => b.id - a.id)
@@ -38,9 +53,10 @@ const TasksContainer = () => {
                             id={task.id}
                             title={task.title}
                             completed={task.completed}
+                            
                         />
                     ))}
-            </div>
+            </motion.div>
 
             {tasks.length > tasksPerPage + 1 && (
                 <ReactPaginate

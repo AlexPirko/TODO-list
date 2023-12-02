@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { faPen, faShare } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 
 import {
     editTask,
@@ -18,6 +19,14 @@ const TaskBlock = ({ id, title, completed }) => {
     const [value, setValue] = useState(title);
     const editInputRef = useRef(null);
 
+    const item = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+        },
+    };
+
     useEffect(() => {
         if (isEdit) {
             editInputRef?.current?.focus();
@@ -30,7 +39,7 @@ const TaskBlock = ({ id, title, completed }) => {
     };
 
     return (
-        <div className={styles.taskBlock}>
+        <motion.div className={styles.taskBlock} variants={item}>
             {isEdit ? (
                 <input
                     type='text'
@@ -90,7 +99,7 @@ const TaskBlock = ({ id, title, completed }) => {
                 />
                 <label htmlFor={id}></label>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
