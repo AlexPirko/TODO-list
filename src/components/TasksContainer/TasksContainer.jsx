@@ -5,11 +5,13 @@ import ReactPaginate from 'react-paginate';
 import { useSelector } from 'react-redux';
 
 import TaskBlock from '../TaskBlock/TaskBlock';
+import { selectCurrTasks } from '../../store/tasks/tasks-selectors';
+import { selectFilter } from '../../store/filters/filters-selectors';
 
 const TasksContainer = () => {
     const [pages, setPages] = useState(0);
-
-    const tasks = useSelector((store) => store.tasks);
+    const filter = useSelector(selectFilter);
+    const tasks = useSelector((state) => selectCurrTasks(state, filter));
 
     //Add Pagination
     const tasksPerPage = 6;
