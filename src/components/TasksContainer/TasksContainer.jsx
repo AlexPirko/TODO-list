@@ -30,6 +30,7 @@ const TasksContainer = () => {
                     </h3>
                 )}
                 {tasks
+                    .toSorted((a, b) => b.id - a.id)
                     .slice(activePage, activePage + tasksPerPage)
                     .map((task) => (
                         <TaskBlock
