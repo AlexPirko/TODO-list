@@ -6,13 +6,11 @@ import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 
 import TaskBlock from '../TaskBlock/TaskBlock';
-import { selectCurrTasks } from '../../store/tasks/tasks-selectors';
-import { selectFilter } from '../../store/filters/filters-selectors';
+import {selectAllTasks } from '../../store/tasks/tasks-selectors';
 
 const TasksContainer = () => {
     const [pages, setPages] = useState(0);
-    const filter = useSelector(selectFilter);
-    const tasks = useSelector((state) => selectCurrTasks(state, filter));
+    const tasks = useSelector((state) => selectAllTasks(state));
 
     //Add Pagination
     const tasksPerPage = 6;

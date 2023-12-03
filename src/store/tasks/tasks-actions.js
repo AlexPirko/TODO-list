@@ -1,3 +1,8 @@
+export const addInitTask = (tasks) => ({
+    type: 'ADD_INIT_TASK',
+    tasks,
+});
+
 export const addTask = (title) => ({
     type: 'ADD_TASK',
     title,

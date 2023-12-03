@@ -1,7 +1,10 @@
-import { initialState } from '../../helpers/getInitialState';
+// import { initialState } from '../../helpers/getInitialState';
 
-export const tasks = (state = initialState, action) => {
+export const tasks = (state = [], action) => {
     switch (action.type) {
+        case 'ADD_INIT_TASK': {
+            return action.tasks;
+        }
         case 'ADD_TASK': {
             return [
                 ...state,
